@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="card mt-5">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="{{ image.image.cdn_url }}-/stretch/off/-/resize/260x/" class="card-img" alt="Uploaded image">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ image.image.info.original_filename }}</h2>
+                        <p class="card-text"><b>Uploaded</b>: {{ image.image.info.datetime_uploaded|slice:":10" }}</p>
+                        <p class="card-text"><b>Original size</b>: {{ image.image.info.size|filesizeformat }}</p>
+                        <p class="card-text"><a href="{{ image.image.cdn_url }}">Full link</a></p>
+                        <p class="card-text"><a href="{% url 'index' %}">Upload another image</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
